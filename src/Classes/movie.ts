@@ -4,7 +4,7 @@ import { IMovie, Genre, Country } from '../Types/movies';
 
 export class Movie implements IMovie {
   private allGenres: Genre[] = [Genre.drama, Genre.action, Genre.fantasy];
-  private allCountries: Country[] = [Country.US, Country.UK, Country.US];
+  private allCountries: Country[] = [Country.US, Country.UK, Country.France];
 
   constructor(
     public director: IMovie['director'] = undefined!,
