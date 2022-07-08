@@ -4,26 +4,17 @@ export enum Genre {
   'fantasy',
 }
 
-export interface IMovie {
-  director: string;
-  genre: Genre;
-  title: string;
-  duration: number;
-  rating: number;
+export enum Country {
+  'US',
+  'UK',
+  'France',
 }
 
-export class Movie implements IMovie {
-  constructor(
-    public director: string,
-    public genre: Genre,
-    public title: string,
-    public duration: number,
-    public rating: number,
-  ) {
-    this.director = director;
-    this.genre = genre;
-    this.title = title;
-    this.duration = duration;
-    this.rating = rating;
-  }
+export interface IMovie {
+  director: string;
+  genres: Genre[];
+  title: string;
+  country: Country;
+  duration: number;
+  rating: number;
 }
