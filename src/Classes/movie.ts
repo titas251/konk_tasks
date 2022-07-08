@@ -16,9 +16,9 @@ export class Movie implements IMovie {
   ) {
     this.director = director ?? this.RandomDirectorName;
     this.genres = genres ?? this.RandomGenres;
-    this.title = title ?? this.RandomDirectorName;
+    this.title = title ?? this.RandomTitle;
     this.country = country ?? this.RandomCountry;
-    this.rating = rating ?? this.RandomDirectorName;
+    this.rating = rating ?? this.RandomRating;
   }
 
   private get RandomDirectorName(): string {
