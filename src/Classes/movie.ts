@@ -21,23 +21,23 @@ export class Movie implements IMovie {
     this.rating = rating ?? this.RandomRating;
   }
 
-  private get RandomDirectorName(): string {
+  private get RandomDirectorName(): IMovie['director'] {
     return faker.name.findName();
   }
 
-  private get RandomTitle(): string {
+  private get RandomTitle(): IMovie['title'] {
     return `${faker.word.adjective()} ${faker.word.noun()}`;
   }
 
-  private get RandomRating(): number {
+  private get RandomRating(): IMovie['rating'] {
     return faker.datatype.float({ min: 1, max: 10 });
   }
 
-  private get RandomGenres(): number[] {
+  private get RandomGenres(): IMovie['genres'] {
     return faker.helpers.arrayElements(this.allGenres);
   }
 
-  private get RandomCountry(): number {
+  private get RandomCountry(): IMovie['country'] {
     return faker.helpers.arrayElement(this.allCountries);
   }
 }
