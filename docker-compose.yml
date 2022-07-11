@@ -11,6 +11,8 @@ services:
       - ./nodemon.json:/usr/src/app/nodemon.json
     container_name: node-app
     command: npm run nodemon
+    ports:
+     - "${PORT}:${PORT}"
     env_file:
       - ./.env
     environment:
