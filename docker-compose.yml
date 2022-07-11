@@ -14,5 +14,5 @@ services:
     env_file:
       - ./.env
     environment:
-      - MONGO_DB=${MONGO_DB}
-      - MONGO_USER=${MONGO_USER}
+      - MIN_MOVIE_COUNT=${MIN_MOVIE_COUNT}
+      - MAX_MOVIE_COUNT=${MAX_MOVIE_COUNT}
