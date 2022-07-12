@@ -2,10 +2,10 @@ import { faker } from '@faker-js/faker';
 import { getRandomInt } from '../Utils/helpers';
 import { IMovie, Genre, Country } from '../Types/Movies';
 
-export class Movie implements IMovie {
-  private allGenres: Genre[] = [Genre.drama, Genre.action, Genre.fantasy];
-  private allCountries: Country[] = [Country.US, Country.UK, Country.France];
+const allGenres: Genre[] = [Genre.drama, Genre.action, Genre.fantasy];
+const allCountries: Country[] = [Country.US, Country.UK, Country.France];
 
+export class Movie implements IMovie {
   constructor(
     public director: IMovie['director'] = undefined!,
     public genres: IMovie['genres'] = undefined!,
@@ -34,11 +34,11 @@ export class Movie implements IMovie {
   }
 
   private get RandomGenres(): IMovie['genres'] {
-    return faker.helpers.arrayElements(this.allGenres);
+    return faker.helpers.arrayElements(allGenres);
   }
 
   private get RandomCountry(): IMovie['country'] {
-    return faker.helpers.arrayElement(this.allCountries);
+    return faker.helpers.arrayElement(allCountries);
   }
 }
 

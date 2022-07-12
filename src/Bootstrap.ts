@@ -1,5 +1,5 @@
 import http from 'http';
-import express, { Request, Response } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import IController from './Controllers/IController';
 
