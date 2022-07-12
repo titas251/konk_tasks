@@ -1,14 +1,16 @@
 import http from 'http';
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
+import IController from './Controllers/IController';
 
 export default class AppServer {
   private app;
-  constructor(public port: number) {
+
+  constructor(public port: number, public controllers: Array<IController>) {
     this.app = express();
     this.port = port;
     this.initializeMiddlewares();
-    this.loadRoutes();
+    this.loadControllers(controllers);
   }
 
   public listen(): http.Server {
@@ -17,12 +19,11 @@ export default class AppServer {
     });
   }
 
-  private loadRoutes = () => {
-    this.app.get('/', (req: Request, res: Response) => {
-      res.send('Hello World!');
-      console.log('Get /');
+  public loadControllers(controllers: Array<IController>): void {
+    controllers.forEach((controller) => {
+      this.app.use(controller.path, controller.setRoutes());
     });
-  };
+  }
 
   private initializeMiddlewares = () => {
     this.app.use(bodyParser.json());

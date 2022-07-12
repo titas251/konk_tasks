@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { getRandomInt } from '../Utils/helpers';
-import { IMovie, Genre, Country } from '../Types/movies';
+import { IMovie, Genre, Country } from '../Types/Movies';
 
 export class Movie implements IMovie {
   private allGenres: Genre[] = [Genre.drama, Genre.action, Genre.fantasy];
@@ -41,3 +41,5 @@ export class Movie implements IMovie {
     return faker.helpers.arrayElement(this.allCountries);
   }
 }
+
+export let MoviesStorage: IMovie[] = [...Array(getRandomInt(5, 10))].map(() => new Movie());
