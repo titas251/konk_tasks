@@ -1,6 +1,7 @@
 import { Router, Response, Request } from 'express';
 import IController from '../Types/IController';
 import MovieRepository from '../Repositories/MovieRepository';
+import { movieValidator } from '../Middleware/Movie';
 
 export default class MovieController implements IController {
   public path: IController['path'] = '/movie';
@@ -30,7 +31,7 @@ export default class MovieController implements IController {
   public setRoutes(): Router {
     this.router.get(`/`, this.getMovies.bind(this));
     this.router.get(`/:title`, this.getMovie.bind(this));
-    this.router.post(`/`, this.createMovie.bind(this));
+    this.router.post(`/`, movieValidator(), this.createMovie.bind(this));
     this.router.delete(`/:title`, this.deleteMovie.bind(this));
     return this.router;
   }
