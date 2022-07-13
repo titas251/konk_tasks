@@ -2,8 +2,8 @@ import { faker } from '@faker-js/faker';
 import { getRandomInt } from '../Utils/helpers';
 import { IMovie, Genre, Country } from '../Types/Movies';
 
-const allGenres: Genre[] = [Genre.drama, Genre.action, Genre.fantasy];
-const allCountries: Country[] = [Country.US, Country.UK, Country.France];
+const allGenres: Genre[] = [Genre.DRAMA, Genre.ACTION, Genre.FANTASY];
+const allCountries: Country[] = [Country.US, Country.UK, Country.FRANCE];
 
 export class Movie implements IMovie {
   constructor(
@@ -41,5 +41,3 @@ export class Movie implements IMovie {
     return faker.helpers.arrayElement(allCountries);
   }
 }
-
-export let MoviesStorage: IMovie[] = [...Array(getRandomInt(5, 10))].map(() => new Movie());

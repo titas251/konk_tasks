@@ -1,5 +1,5 @@
 import { Router, Response, Request } from 'express';
-import IController from './IController';
+import IController from '../Types/IController';
 import MovieRepository from '../Repositories/MovieRepository';
 
 export default class MovieController implements IController {
@@ -18,13 +18,13 @@ export default class MovieController implements IController {
   }
 
   public async createMovie(req: Request, res: Response) {
-    const { director, genres, title, country, duration, rating } = req.body;
-    this.movieRepository.createMovie(director, genres, title, country, duration, rating);
-    return res.status(200).send('Successfully created.');
+    const createdMovie = this.movieRepository.createMovie(req.body);
+    return res.status(200).send(createdMovie);
   }
 
   public async deleteMovie({ params: { title } }: Request, res: Response) {
-    return res.status(200).send(`Movie '${title}' deleted successfully`);
+    const deletedMovie = this.movieRepository.deleteMovie(title);
+    return res.status(200).send(deletedMovie);
   }
 
   public setRoutes(): Router {

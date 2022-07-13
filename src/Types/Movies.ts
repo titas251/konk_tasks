@@ -1,13 +1,13 @@
 export enum Genre {
-  'drama',
-  'action',
-  'fantasy',
+  'DRAMA',
+  'ACTION',
+  'FANTASY',
 }
 
 export enum Country {
   'US',
   'UK',
-  'France',
+  'FRANCE',
 }
 
 export interface IMovie {

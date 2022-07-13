@@ -1,7 +1,7 @@
 import http from 'http';
 import express from 'express';
 import bodyParser from 'body-parser';
-import IController from './Controllers/IController';
+import IController from './Types/IController';
 
 export default class AppServer {
   private app;
