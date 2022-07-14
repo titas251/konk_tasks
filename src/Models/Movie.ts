@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { getRandomInt } from '../Utils/helpers';
 import { IMovie, Genre, Country } from '../Types/Movies';
+import Author from '../Models/Author';
 
 const allGenres: Genre[] = [Genre.DRAMA, Genre.ACTION, Genre.FANTASY];
 const allCountries: Country[] = [Country.US, Country.UK, Country.FRANCE];
@@ -13,12 +14,14 @@ export class Movie implements IMovie {
     public country: IMovie['country'] = undefined!,
     public duration: IMovie['duration'] = getRandomInt(30, 200),
     public rating: IMovie['rating'] = undefined!,
+    public authors: IMovie['authors'] = undefined!,
   ) {
     this.director = director ?? this.RandomDirectorName;
     this.genres = genres ?? this.RandomGenres;
     this.title = title ?? this.RandomTitle;
     this.country = country ?? this.RandomCountry;
     this.rating = rating ?? this.RandomRating;
+    this.authors = authors ?? this.RandomAuthors;
   }
 
   private get RandomDirectorName(): IMovie['director'] {
@@ -39,5 +42,9 @@ export class Movie implements IMovie {
 
   private get RandomCountry(): IMovie['country'] {
     return faker.helpers.arrayElement(allCountries);
+  }
+
+  private get RandomAuthors(): IMovie['authors'] {
+    return [...Array(faker.datatype.number({ min: 1, max: 3 }))].map(() => new Author());
   }
 }

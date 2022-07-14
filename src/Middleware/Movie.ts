@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 import { Request, Response, NextFunction } from 'express';
 import { Country, Genre } from '../Types/Movies';
-import { error } from 'console';
 
 export const movieSchema = yup.object({
   director: yup.string(),

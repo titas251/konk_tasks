@@ -1,3 +1,5 @@
+import IAuthor from './IAuthor';
+
 export enum Genre {
   'DRAMA' = 'drama',
   'ACTION' = 'action',
@@ -17,4 +19,5 @@ export interface IMovie {
   country: Country;
   duration: number;
   rating: number;
+  authors: IAuthor[];
 }

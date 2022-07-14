@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import AppServer from './Bootstrap';
 import IController from './Types/IController';
 import MovieController from './Controllers/MovieController';
